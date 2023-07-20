@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ToDo from "./components/ToDo";
 import NewToDo from "./components/NewToDo";
+import IconDocument from "./icons/IconDocument";
 import type {IToDo} from "./types";
 
 function App() {
@@ -19,10 +20,10 @@ function App() {
 
   return (
     <div className="place-content-center">
-      <header className="flex text-center items-center flex-col justify-center bg-violet-800 text-white text-xl font-semibold py-4">
-        <h1>ToDo App</h1>
+      <header className="flex text-center items-center justify-center bg-violet-800 text-white text-xl font-semibold py-4">
+        <IconDocument/><h1 className="ml-2">ToDo App</h1>
       </header>
-      <main className="flex mt-4 max-w-sm flex-col justify-center m-auto">
+      <main className="flex mt-4 px-2 max-w-sm flex-col justify-center m-auto">
         <NewToDo onCreate={(todo) => handleCreateNew(todo)} />
         <div className="flex flex-col items-start mt-2">
           {todos.map((todo, idx) => (
