@@ -1,10 +1,10 @@
-import clsx from "clsx";
+import {clsx} from "clsx";
 import { useState } from "react";
-import IconEdit from "./icons/IconEdit";
-import IconDelete from "./icons/IconDelete";
+import IconEdit from "./../icons/IconEdit";
+import IconDelete from "./../icons/IconDelete";
 
 export default function ToDo({ name, id, updateTodo, deleteTodo }) {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState<boolean>(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
   const [nextValue, setNextValue] = useState(name);
@@ -34,7 +34,7 @@ export default function ToDo({ name, id, updateTodo, deleteTodo }) {
         id={id}
         type="checkbox"
         className="mr-2"
-        value={checked}
+        checked={checked}
         onChange={() => setChecked(!checked)}
       />
       {!isEditMode ? (

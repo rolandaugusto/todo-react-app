@@ -1,19 +1,21 @@
 import { useState } from "react";
-import ToDo from "./ToDo";
-import NewToDo from "./NewToDo";
+import ToDo from "./components/ToDo";
+import NewToDo from "./components/NewToDo";
+import type {IToDo} from "./types";
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const handleCreateNew = (todo) => {
+  const [todos, setTodos] = useState<IToDo[]>([]);
+
+  const handleCreateNew = (todo: IToDo) => {
     setTodos([...todos, todo]);
   };
-  const handleUpdateTodo = (nextTodo) =>
+  const handleUpdateTodo = (nextTodo: IToDo) =>
     setTodos(
       todos.map((t) =>
         t.id === nextTodo.id ? { ...nextTodo, name: nextTodo.name } : t
       )
     );
-  const deleteTodo = (todoId) => setTodos(todos.filter((t) => t.id !== todoId));
+  const deleteTodo = (todoId: string) => setTodos(todos.filter((t) => t.id !== todoId));
 
   return (
     <div className="place-content-center">
