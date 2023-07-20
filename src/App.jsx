@@ -7,12 +7,13 @@ function App() {
   const handleCreateNew = (todo) => {
     setTodos([...todos, todo]);
   };
-  const handleUpdateTodo = (nextVal) =>
+  const handleUpdateTodo = (nextTodo) =>
     setTodos(
       todos.map((t) =>
-        t.id === nextVal.id ? { ...nextVal, name: nextVal.name } : t
+        t.id === nextTodo.id ? { ...nextTodo, name: nextTodo.name } : t
       )
     );
+  const deleteTodo = (todoId) => setTodos(todos.filter((t) => t.id !== todoId));
 
   return (
     <div className="place-content-center">
@@ -28,6 +29,7 @@ function App() {
               id={todo.id}
               key={idx}
               updateTodo={handleUpdateTodo}
+              deleteTodo={deleteTodo}
             />
           ))}
         </div>
